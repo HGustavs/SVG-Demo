@@ -49,7 +49,15 @@
             //alert("Hello!");
             document.getElementById("content").innerHTML=svgdata[0].content;
             document.getElementById("editor").value=svgdata[0].content;
-        }
+
+            str="<select id='filename'>";
+            for(var i=0;i<svgdata.length;i++){
+                str+=`<option value='${i}'>${svgdata[i].name}</option>`;
+            }
+            str+="</select>";
+
+            document.getElementById("drop").innerHTML=str;
+       }
 
         // Text area content processing
         function processContent()
@@ -60,7 +68,7 @@
   </head> 
   <body onload="setup();">
     <div id="leftpane">
-      SVG Editor
+      <span id="Title">SVG Editor: </span><span id="drop"></span>
       <textarea id="editor" oninput="processContent()"></textarea>
     </div>
     <div id="rightpane">
