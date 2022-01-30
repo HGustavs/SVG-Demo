@@ -33,9 +33,14 @@
       }
 
       #editor{
-        height:100%;
+        height:60%;
         width:100%;
       }
+
+      #styleed{
+        height:40%;
+        width:100%;
+      }      
 
       #content{
         width:100%;
@@ -46,9 +51,17 @@
     <script>
         function setup()
         {
+            var current=0;
+
             //alert("Hello!");
-            document.getElementById("content").innerHTML=svgdata[0].content;
-            document.getElementById("editor").value=svgdata[0].content;
+            document.getElementById("content").innerHTML=svgdata[current].content;
+            document.getElementById("editor").value=svgdata[current].content;
+
+            // CSS Editing Kind!
+            if(svgdata[current].kind==1){
+                  document.getElementById("styleed").value=svgdata[current].style;
+
+            }
 
             str="<select id='filename'>";
             for(var i=0;i<svgdata.length;i++){
@@ -64,12 +77,20 @@
         {
             document.getElementById("content").innerHTML=document.getElementById("editor").value;    
         }
+
+        // Style area content processing
+        function processContent()
+        {
+            //document.getElementById("content").innerHTML=document.getElementById("editor").value;    
+        }
+
     </script>
   </head> 
   <body onload="setup();">
     <div id="leftpane">
       <span id="Title">SVG Editor: </span><span id="drop"></span>
       <textarea id="editor" oninput="processContent()"></textarea>
+      <textarea id="styleed" oninput="processStyleContent()"></textarea>
     </div>
     <div id="rightpane">
       Right
