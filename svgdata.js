@@ -13,11 +13,11 @@ var svgdata=[
   style:`
   @keyframes snurr { 
     0% { 
-        transform: translate(135px,100px) scale(0.3) rotate(0deg); 
+        transform: rotate(0deg); 
     } 
     100%
      { 
-        transform: translate(135px,100px) scale(0.3) rotate(360deg); 
+        transform: rotate(360deg); 
     }
     
 }
@@ -28,6 +28,7 @@ var svgdata=[
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
+  
   `
   },
   {
