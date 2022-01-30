@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="John Doe">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body{
+          font-family:Arial Narrow;
+          font-size:14px;
+      }
+
+      #leftpane{
+          left:0px;
+          right:40%;
+          top:0px;
+          bottom:0px;
+          border:1px solid orange;
+          background: #fed;
+          position:fixed;
+      }
+
+      #rightpane{
+          top:0px;
+          bottom:0px;
+          left:60%;
+          right:0px;
+          border:1px solid blue;
+          background: #def;
+          position:fixed;
+      }
+
+      #editor{
+        height:100%;
+        width:100%;
+      }
+
+      #content{
+        width:100%;
+        border:1px dotted green;
+      }
+    </style>
+    <script src="svgdata.js"></script>
+    <script>
+        function setup()
+        {
+            //alert("Hello!");
+            document.getElementById("content").innerHTML=svgdata[0].content;
+            document.getElementById("editor").value=svgdata[0].content;
+        }
+
+        // Text area content processing
+        function processContent()
+        {
+            document.getElementById("content").innerHTML=document.getElementById("editor").value;    
+        }
+    </script>
+  </head> 
+  <body onload="setup();">
+    <div id="leftpane">
+      SVG Editor
+      <textarea id="editor" oninput="processContent()"></textarea>
+    </div>
+    <div id="rightpane">
+      Right
+      <div id="content"></div>
+    </div>
+  </body>
+</html>>
