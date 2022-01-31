@@ -65,7 +65,9 @@ var svgdata=[
     kind:1,
     content:`
   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet">
-    <line x1="0" y1="80" x2="100" y2="20" stroke="black" />
+    <line x1="-20" y1="-20" x2="20" y2="20" stroke="black" />
+    <line x1="20" y1="-20" x2="-20" y2="20" stroke="black" />  
+    <line x1="0" y1="80" x2="100" y2="20" stroke="red" />
     <circle cx="100" cy="100" r="50" fill="green" />
     <polygon id="tri" points="20,20 180,50 100,200" stroke="red" fill="none" />
     <text x="100" y="100" font-size="30" text-anchor="middle" fill="white">SVG</text>
