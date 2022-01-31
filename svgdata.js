@@ -1,6 +1,67 @@
 var svgdata=[
   {
-    name:"Css Example",
+    name:"SVG View Box",
+    kind:0,
+    content:`
+ <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet">
+    <line x1="0" y1="80" x2="100" y2="20" stroke="black" stroke-width="3" />
+    <circle cx="100" cy="100" r="50" fill="green" />
+    <rect x="100" y="100" width="90" height="60" fill="orange" />
+</svg> 
+`,
+},  
+  {
+    name:"SVG Primitives",
+    kind:0,
+    content:`
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet">
+    <line x1="0" y1="80" x2="100" y2="20" stroke="black" stroke-width="3" />
+    <circle cx="100" cy="100" r="50" fill="green" />
+    <polygon points="20,20 180,50 100,200" stroke="red" fill="none" stroke-width="1" />
+    <text x="100" y="100" font-size="30" text-anchor="middle" fill="white">SVG</text>
+</svg> 
+`,
+},
+{
+  name:"SVG Interface",
+  kind:0,
+  content:`
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet">
+  <line x1="0" y1="80" x2="100" y2="20" stroke="black" />
+  <g onclick="alert('Hello 1!')">
+      <rect x="0" y="100" width="75" height="40" rx="5" fill="orange" />
+      <text x="35" y="124" font-size="15" text-anchor="middle" fill="white">Knapp!</text>
+  </g>
+  <g onclick="alert('Hello 2!')">
+      <rect x="120" y="155" width="75" height="40" rx="5" fill="orange" />
+      <text x="158" y="180" font-size="15" text-anchor="middle" fill="white">Knapp!</text>
+  </g>
+  <path d="M27.73,22.59L42.11,8.21c1.42-1.42,1.42-3.72,0-5.14c-1.42-1.42-3.72-1.42-5.14,0L22.59,17.45L8.21,3.07
+	c-1.42-1.42-3.72-1.42-5.14,0c-1.42,1.42-1.42,3.72,0,5.14l14.38,14.38L3.07,36.97c-1.42,1.42-1.42,3.72,0,5.14
+	c0.71,0.71,1.64,1.07,2.57,1.07c0.93,0,1.86-0.35,2.57-1.07l14.38-14.38l14.38,14.38c0.71,0.71,1.64,1.07,2.57,1.07
+	c0.93,0,1.86-0.36,2.57-1.07c1.42-1.42,1.42-3.72,0-5.14L27.73,22.59z" onclick="alert('Close!')" />
+</svg> 
+`,
+}, 
+{
+    name:"SVG Properties",
+    kind:0,
+    content:`
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet">
+    <defs>      
+      <linearGradient id="Gradient1" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="red"/>
+        <stop offset="50%" stop-color="black" />
+        <stop offset="60%" stop-color="blue"/>
+      </linearGradient>
+    </defs>
+    <rect id="r1" x="20" y="20" width="160" height="160" stroke="#000000" fill="url(#Gradient1)" />
+    <circle cx="100" cy="100" r="50" fill="url(#Gradient1)" stroke="green" stroke-width="4" stroke-width="3.0" />
+  </svg> 
+  `
+  },
+  {
+    name:"Svg Transformations Origo",
     kind:1,
     content:`
   <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet">
@@ -12,14 +73,12 @@ var svgdata=[
   `,
   style:`
   @keyframes snurr { 
-    0% { 
+    0%{ 
         transform: rotate(0deg); 
     } 
-    100%
-     { 
+    100%{ 
         transform: rotate(360deg); 
     }
-    
 }
 
 #tri{                
@@ -28,36 +87,78 @@ var svgdata=[
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
-  
   `
-  },
+  },  
   {
-      name:"SVG Basics",
-      kind:0,
-      content:`
- <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet">
-      <line x1="0" y1="80" x2="100" y2="20" stroke="black" />
-      <circle cx="100" cy="100" r="50" fill="green" />
-      <polygon points="20,20 180,50 100,200" stroke="red" fill="none" />
-      <text x="100" y="100" font-size="30" text-anchor="middle" fill="white">SVG</text>
-  </svg> 
-`,
-  },
-  {
-    name:"Viewbox Centered",
-    kind:0,
+    name:"Svg Transformations Viewbox Moved",
+    kind:1,
     content:`
 <svg viewBox="-100 -100 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet">
     <line x1="-20" y1="-20" x2="20" y2="20" stroke="black" />
     <line x1="20" y1="-20" x2="-20" y2="20" stroke="black" />
 
     <circle cx="100" cy="100" r="50" fill="green" />
-    <polygon points="-80,-80 80,0 20,100" stroke="red" fill="none" />
-    <text x="100" y="100" font-size="30" text-anchor="middle" fill="white">SVG</text>
+    <g id="tri">
+        <polygon points="-80,-80 80,0 20,100" stroke="red" fill="none" />
+        <text x="0" y="0" font-size="30" text-anchor="middle" fill="white">SVG</text>
+    </g>
 </svg> 
 
 `,
+style:`
+@keyframes snurr { 
+  0% { 
+      transform: rotate(0deg); 
+  } 
+  100%
+   { 
+      transform: rotate(360deg); 
+  }
+  
 }
+
+#tri{                
+  animation-name: snurr;
+  animation-duration: 4000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+`},
+{
+  name:"Svg Rocket",
+  kind:1,
+  content:`
+  <svg viewBox="-100 -100 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet">
+  <g id="rocket">
+  <polygon fill="#A01010" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" points="-20,100 -30,0 -20,-40 0,-70 20,-40 30,0 20,100 -20,100 " />
+  <polygon fill="#C02020" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" points="-30,100 -30,70 -20,50 -20,80 " />
+  <polygon fill="#800000" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" points=" 30,100  30,70  20,50  20,80 " />     <circle fill="#A01010"  stroke="#000000" fill-rule="evenodd" clip-rule="evenodd" cx="0" cy="0" r="20" stroke-width="1.5" />
+   <circle fill="#30A0B0"  stroke="#000000" fill-rule="evenodd" clip-rule="evenodd" cx="0" cy="0" r="15" stroke-width="1.5" />
+  <g id="flame">
+    <polygon fill="#F08012" points="5,100 -5,100 -15,120 0,140 15,120 5,100 " />
+    <polygon fill="#F8AF2A" points="3,100 -3,100 -8,120 0,130 8,120 3,100 " />
+    <polygon fill="#FFFF44" points="1,100 -1,100 -4,110 0,120 4,110 1,100 " />
+  </g>
+</g>
+</svg>
+`,
+style:`
+@keyframes snurr { 
+  0% {
+    transform: translate(0px,0px) scale(0.3) rotate(0deg)
+  }
+  100%{
+     transform: translate(0px,0px) scale(0.3) rotate(360deg);
+  }
+}
+#rocket{
+  animation-name: snurr;
+  animation-duration: 4000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  opacity:0.8;
+}
+`}
 
 
 
