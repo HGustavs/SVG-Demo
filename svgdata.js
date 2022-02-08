@@ -147,20 +147,65 @@ style:`
 style:`
 @keyframes snurr { 
   0% {
-    transform: translate(0px,0px) scale(0.3) rotate(0deg)
+    transform: translate(0px,0px)  rotate(0deg)
   }
   100%{
-     transform: translate(0px,0px) scale(0.3) rotate(360deg);
+     transform: translate(0px,0px)  rotate(360deg);
   }
 }
-#rocket{
+#tumbler{
+  animation-name: snurr;
+  animation-duration: 4000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+`},
+{
+  name:"SVG Interface",
+  kind:1,
+  content:`
+<svg viewBox="-100 -100 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet">
+
+  <g id="tumbler">
+      <polygon points="-40,-5 0,-5 80,-10 95,0 80,10 0,5 -40,5" fill="#802" fill="none" stroke-width="1" />
+      <path d="M-20,0 L70,0 M75,0 L85,0" stroke="#ddd" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <g onclick="document.getElementById('tumbler').style.animationPlayState='paused'">
+      <rect x="-100" y="60" width="60" height="40" rx="5" fill="orange" />
+      <text x="-70" y="85" font-size="15" text-anchor="middle" fill="white">Pause</text>
+  </g>
+  <g onclick="document.getElementById('tumbler').style.animationPlayState='running'">
+      <rect x="-30" y="60" width="60" height="40" rx="5" fill="orange" />
+      <text x="0" y="85" font-size="15" text-anchor="middle" fill="white">Play</text>
+  </g>
+  <g onclick="document.getElementById('tumbler').style.animationName='none'">
+      <rect x="-100" y="0" width="60" height="40" rx="5" fill="orange" />
+      <text x="-70" y="20" font-size="15" text-anchor="middle" fill="white">Stop</text>
+  </g>
+  <g onclick="document.getElementById('tumbler').style.animationName='snurr'">
+      <rect x="-30" y="0" width="60" height="40" rx="5" fill="orange" />
+      <text x="0" y="20" font-size="15" text-anchor="middle" fill="white">Start</text>
+  </g>  
+</svg> 
+`,
+style:`
+@keyframes snurr { 
+  0% {
+    transform: translate(0px,0px)  rotate(0deg)
+  }
+  100%{
+     transform: translate(0px,0px)  rotate(360deg);
+  }
+}
+#tumbler{
   animation-name: snurr;
   animation-duration: 4000ms;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   opacity:0.8;
 }
-`}
+`},
 
 
 
