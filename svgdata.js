@@ -23,6 +23,23 @@ var svgdata=[
 `,
 },
 {
+    name:"SVG Properties",
+    kind:0,
+    content:`
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet">
+    <defs>      
+      <linearGradient id="Gradient1" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="red"/>
+        <stop offset="50%" stop-color="black" />
+        <stop offset="60%" stop-color="blue"/>
+      </linearGradient>
+    </defs>
+    <rect id="r1" x="20" y="20" width="160" height="160" stroke="#000000" fill="url(#Gradient1)" />
+    <circle cx="100" cy="100" r="50" fill="url(#Gradient1)" stroke="green" stroke-width="4" stroke-width="3.0" />
+  </svg> 
+  `
+  },
+{
   name:"SVG Interface",
   kind:0,
   content:`
@@ -44,23 +61,36 @@ var svgdata=[
 `,
 }, 
 {
-    name:"SVG Properties",
-    kind:0,
-    content:`
+  name:"SVG Transition",
+  kind:1,
+  content:`
 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet">
-    <defs>      
-      <linearGradient id="Gradient1" x1="0" x2="0" y1="0" y2="1">
-        <stop offset="0%" stop-color="red"/>
-        <stop offset="50%" stop-color="black" />
-        <stop offset="60%" stop-color="blue"/>
-      </linearGradient>
-    </defs>
-    <rect id="r1" x="20" y="20" width="160" height="160" stroke="#000000" fill="url(#Gradient1)" />
-    <circle cx="100" cy="100" r="50" fill="url(#Gradient1)" stroke="green" stroke-width="4" stroke-width="3.0" />
-  </svg> 
+
+  <rect id="quad2" x="60" y="45" width="50" height="50" rx="§" fill="#4ef" stroke="#080" />
+  <rect id="quad" x="50" y="30" width="50" height="50" rx="3" fill="#fe4" stroke="#000" />
+
+  <g onclick="document.getElementById('quad').style.transform='translate(100px,100px)'">
+      <rect x="0" y="100" width="75" height="30" rx="5" fill="orange" />
+      <text x="35" y="115" font-size="15" text-anchor="middle" fill="white">Move!</text>
+  </g>
+  <g onclick="document.getElementById('quad').style.opacity='0.1'">
+      <rect x="100" y="100" width="75" height="30" rx="5" fill="orange" />
+      <text x="135" y="115" font-size="15" text-anchor="middle" fill="white">Fade!</text>
+  </g>
+  <g onclick="document.getElementById('quad').style.opacity='0.1'">
+      <rect x="0" y="140" width="75" height="30" rx="5" fill="orange" />
+      <text x="35" y="155" font-size="15" text-anchor="middle" fill="white">Fade!</text>
+  </g>
+
+</svg> 
+`,
+  style:`
+#quad{                
+    transition: transform 2s, opacity 4s;
+}
   `
-  },
-  {
+}, 
+{
     name:"Svg Transformations Origo",
     kind:1,
     content:`
@@ -161,7 +191,7 @@ style:`
 }
 `},
 {
-  name:"SVG Interface",
+  name:"SVG Animation Interface",
   kind:1,
   content:`
 <svg viewBox="-100 -100 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet">
